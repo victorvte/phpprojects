@@ -1,32 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <?php
+    $idioma = "es";
+    $array_menu = array(
+      "titulo" => array(
+        "es" => "MathDice",
+        "en" => "MathDice"
+      ),
+      "inicio" => array(
+        "es" => "Inicio",
+        "en" => "Home"
+      ),
+      "instrucciones" => array(
+        "es" => "Instrucciones",
+        "en" => "Instruccions"
+      ),
+      "tiposJuego" => array(
+        "es" => "Modo de juego",
+        "en" => "Game mode"
+      ),
+    );
+    $array_submenu = array(
+      1 => array(
+        "es" => "Juego tradicional",
+        "en" => "Traditional mode"
+      ),
+      2 => array(
+        "es" => "Juego modificado",
+        "en" => "Game modified"
+      ),
+      3 => array(
+        "es" => "Modo infantil",
+        "en" => "Kids mode"
+      )
+    );
+  ?>
 <head>
   <title>Bootstrap Case</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#"><?= $array_menu["titulo"][$idioma]?></a>
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+      <li class="active"><a href="#"><?= $array_menu["inicio"][$idioma]?></a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $array_menu["tiposJuego"][$idioma]?><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Page 1-1</a></li>
-            <li><a href="#">Page 1-2</a></li>
-            <li><a href="#">Page 1-3</a></li>
+            <li><a href="#"><?= $array_submenu[1][$idioma]?></a></li>
+            <li><a href="#"><?= $array_submenu[2][$idioma]?></a></li>
+            <li><a href="#"><?= $array_submenu[3][$idioma]?></a></li>
           </ul>
         </li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
+        <li><a href="#"><?= $array_menu["instrucciones"][$idioma]?></a></li>
       </ul>
     </div>
   </div>
