@@ -1,3 +1,7 @@
 #uno{
     background-image: url("imagenes/dado1.png");
 }
+
+#numRandom{
+    padding-top: 25px;
+}
