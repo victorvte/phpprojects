@@ -65,8 +65,27 @@
     </div>
   </div>
 </nav>
-  
+
 <div class="container">
+  <div class="row">
+    <div class="col-sm-2">Dado 1</div>
+    <div class="col-sm-2">Dado 2</div>
+    <div class="col-sm-2">Dado 3</div>
+    <div class="col-sm-2">Dado 4</div>
+    <div class="col-sm-2">Dado 5</div>
+    <div class="col-sm-2">Dado 6</div>
+  </div>
+  <div class="row">
+    <div class="col-*-*"></div>
+    <div class="col-*-*"></div>
+    <div class="col-*-*"></div>
+  </div>
+  <div class="row">
+    ...
+  </div>
+</div>
+  
+<!--<div class="container">
   <div class="jumbotron">
     <h1>My first Bootstrap website!</h1>      
     <p>This page will grow as we add more and more components from Bootstrap...</p>      
@@ -101,6 +120,6 @@
     <div class="clearfix visible-lg"></div>
   </div>
 </div>
-
+!--> 
 </body>
 </html>
