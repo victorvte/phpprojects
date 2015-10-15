@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
   <?php
-  include 'conf.php';
-   include 'funciones.php';
+    include 'conf.php';
+    include 'funciones.php';
+    
+    function reload(){
+        header("Refresh:0");
+    }
+    
+    if ($_POST['submit_button']) {
+    $a = $_POST['update'];
+    echo $a;
+    }
+    else {
   ?>
 <head>
   <title>Bootstrap Case</title>
@@ -53,6 +63,19 @@
     <div class="col-sm-2"> Tu dado es: </div>
     <div class="col-sm-4"> <img src="imagenes/dado<?= $numeroDado ?>.png" class="img-responsive"></div>
   </div>
+  <div class="row" id="numRandom">
+    <div class="col-sm-2"> 
+    <button type="button" value="reload">Reload Number!</button>
+    <input type="submit" class="button" name="reload" value="reload" onClick="history.go(0)"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+          
+    </div>
+  </div>
+ 
 </div>
   
 <!--<div class="container">
