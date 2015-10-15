@@ -1,39 +1,8 @@
 <!DOCTYPE html>
 <html>
   <?php
-    $idioma = "es";
-    $array_menu = array(
-      "titulo" => array(
-        "es" => "MathDice",
-        "en" => "MathDice"
-      ),
-      "inicio" => array(
-        "es" => "Inicio",
-        "en" => "Home"
-      ),
-      "instrucciones" => array(
-        "es" => "Instrucciones",
-        "en" => "Instruccions"
-      ),
-      "tiposJuego" => array(
-        "es" => "Modo de juego",
-        "en" => "Game mode"
-      ),
-    );
-    $array_submenu = array(
-      1 => array(
-        "es" => "Juego tradicional",
-        "en" => "Traditional mode"
-      ),
-      2 => array(
-        "es" => "Juego modificado",
-        "en" => "Game modified"
-      ),
-      3 => array(
-        "es" => "Modo infantil",
-        "en" => "Kids mode"
-      )
-    );
+  include 'conf.php';
+   include 'funciones.php';
   ?>
 <head>
   <title>Bootstrap Case</title>
@@ -42,6 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/estilo.css">
 </head>
 <body>
 
@@ -68,20 +38,20 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-2">Dado 1</div>
-    <div class="col-sm-2">Dado 2</div>
-    <div class="col-sm-2">Dado 3</div>
-    <div class="col-sm-2">Dado 4</div>
-    <div class="col-sm-2">Dado 5</div>
-    <div class="col-sm-2">Dado 6</div>
+    <div class="col-sm-2"><img src="imagenes/dado1.png" class="img-responsive"></div>
+    <div class="col-sm-2"><img src="imagenes/dado2.png" class="img-responsive"></div>
+    <div class="col-sm-2"><img src="imagenes/dado3.png" class="img-responsive"></div>
+    <div class="col-sm-2"><img src="imagenes/dado4.png" class="img-responsive"></div>
+    <div class="col-sm-2"><img src="imagenes/dado5.png" class="img-responsive"></div>
+    <div class="col-sm-2"><img src="imagenes/dado6.png" class="img-responsive"></div>
   </div>
   <div class="row">
-    <div class="col-*-*"></div>
-    <div class="col-*-*"></div>
-    <div class="col-*-*"></div>
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-4"> </div>
   </div>
   <div class="row">
-    ...
+    <div class="col-sm-2"> Tu dado es: </div>
+    <div class="col-sm-4"> <img src="imagenes/dado<?= $numeroDado ?>.png" class="img-responsive"></div>
   </div>
 </div>
   
