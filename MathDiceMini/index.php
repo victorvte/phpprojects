@@ -6,18 +6,10 @@
     <meta charset="utf-8">
     
     <?php
+    //Inncluir los ficheros externos
       include 'conf.php';
       include 'funciones.php';
       
-      function reload(){
-          header("Refresh:0");
-      }
-      
-      if ($_POST['submit_button']) {
-      $a = $_POST['update'];
-      echo $a;
-      }
-      else {}
     ?>
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +22,7 @@
   <body>
   
     <?php
+    //Incluir cabecera
       include 'cabecera.php';
     ?>
   
@@ -47,10 +40,12 @@
         <div class="col-sm-4"> </div>
       </div>
       <div class="row" id="numRandom">
+        <!-- Se utiliza la funcion 'dadoAleatorio' del fichero 'funciones' para hallar los numeros aleatorios de las imgenes de los dados !-->
         <div class="col-sm-2"> Dado 1: <br> <img src="imagenes/dado<?php echo $imgDadoUno = dadoAleatorio(1, 6); ?>.png" class="img-responsive"> </div>
         <div class="col-sm-2"> Dado 2: <br> <img src="imagenes/dado<?php echo $imgDadoDos = dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
         <div class="col-sm-2"> </div>
         <div class="col-sm-6"> 
+        <!-- Se utiliza post en el formulario para enviar los datos !-->
           <form method="post" action="resul.php">
             Dado 1: <br>
             <input type="text" name="dadoUno" value=""/> <br><br>
