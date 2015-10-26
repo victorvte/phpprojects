@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Bootstrap Case</title>
+    <title>Math Dice Mini</title>
     <meta charset="utf-8">
     
     <?php
@@ -29,53 +29,48 @@
   
   <body>
   
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#"><?= $array_menu["titulo"][$idioma]?></a>
-        </div>
-        <div>
-          <ul class="nav navbar-nav">
-          <li class="active"><a href="#"><?= $array_menu["inicio"][$idioma]?></a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $array_menu["tiposJuego"][$idioma]?><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><?= $array_submenu[1][$idioma]?></a></li>
-                <li><a href="#"><?= $array_submenu[2][$idioma]?></a></li>
-                <li><a href="#"><?= $array_submenu[3][$idioma]?></a></li>
-              </ul>
-            </li>
-            <li><a href="#"><?= $array_menu["instrucciones"][$idioma]?></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <?php
+      include 'cabecera.php';
+    ?>
   
     <div class="container">
-      <div class="row">
+      <!--<div class="row">
         <div class="col-sm-2"><img src="imagenes/dado1.png" class="img-responsive"></div>
         <div class="col-sm-2"><img src="imagenes/dado2.png" class="img-responsive"></div>
         <div class="col-sm-2"><img src="imagenes/dado3.png" class="img-responsive"></div>
         <div class="col-sm-2"><img src="imagenes/dado4.png" class="img-responsive"></div>
         <div class="col-sm-2"><img src="imagenes/dado5.png" class="img-responsive"></div>
         <div class="col-sm-2"><img src="imagenes/dado6.png" class="img-responsive"></div>
-      </div>
+      </div>!-->
       <div class="row">
         <div class="col-sm-2"> </div>
         <div class="col-sm-4"> </div>
       </div>
       <div class="row" id="numRandom">
-        <div class="col-sm-2"> Tu dado es: </div>
-        <div class="col-sm-4"> <img src="imagenes/dado<?= $numeroDado ?>.png" class="img-responsive"></div>
-      </div>
-      <div class="row" id="numRandom">
-        <div class="col-sm-2"> 
-        <button type="button" value="reload">Reload Number!</button>
-        <input type="submit" class="button" name="reload" value="reload" onClick="history.go(0)"/>
+        <div class="col-sm-2"> Dado 1: <br> <img src="imagenes/dado<?php echo $imgDadoUno = dadoAleatorio(1, 6); ?>.png" class="img-responsive"> </div>
+        <div class="col-sm-2"> Dado 2: <br> <img src="imagenes/dado<?php echo $imgDadoDos = dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
+        <div class="col-sm-2"> </div>
+        <div class="col-sm-6"> 
+          <form method="post" action="resul.php">
+            Dado 1: <br>
+            <input type="text" name="dadoUno" value=""/> <br><br>
+            Sumar dados --> 
+            <input type="radio" name="op" value="mas"/> <p></p>
+            Restar dados -->
+            <input type="radio" name="op" value="menos"/> <br><br>
+            Dado 2: <br>
+            <input type="text" name="dadoDos" value=""/> <p></p>
+            <input type="hidden" name="imgDadoUno" value="<?=$imgDadoUno?>"/> <p></p>
+            <input type="hidden" name="imgDadoDos" value="<?=$imgDadoDos?>"/> <p></p>
+            <input type="submit" class="button" name="submit" value="submit"/>
+          </form>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="numRandom">
         <div class="col-sm-2">
-          <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>"></form>
+          <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+            <input type="submit" class="button" name="Reload" value="Reload"/>
+          </form>
         </div>
       </div>
     </div>
