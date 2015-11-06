@@ -25,7 +25,7 @@
     //Incluir cabecera
       include 'cabecera.php';
     ?>
-  
+  <!--
     <div class="container">
       <!-- Dados muestra proyecto 1
         <div class="row">
@@ -36,24 +36,26 @@
           <div class="col-sm-2"><img src="imagenes/dado5.png" class="img-responsive"></div>
           <div class="col-sm-2"><img src="imagenes/dado6.png" class="img-responsive"></div>
         </div>
-      !-->
+      !--><!--
       <div class="row">
         <div class="col-sm-2"> </div>
         <div class="col-sm-4"> </div>
       </div>
       <div class="row" id="numRandom">
         <!-- Se utiliza la funcion 'dadoAleatorio' del fichero 'funciones' para hallar los numeros aleatorios de las imgenes de los dados !-->
+        <!--
         <div class="col-sm-2"> Dado 1: <br> <img src="imagenes/dado<?php echo $imgDadoUno = dadoAleatorio(1, 6); ?>.png" class="img-responsive"> </div>
         <div class="col-sm-2"> Dado 2: <br> <img src="imagenes/dado<?php echo $imgDadoDos = dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
         <div class="col-sm-2"> </div>
         <div class="col-sm-6"> 
         <!-- Se utiliza post en el formulario para enviar los datos !-->
+        <!--
           <form method="post" action="resul.php">
             Dado 1: <br>
             <input type="text" name="dadoUno" value=""/> <br><br>
-            Sumar dados --> 
+            Sumar dados --> <!--
             <input type="radio" name="op" value="mas"/> <p></p>
-            Restar dados -->
+            Restar dados --><!--
             <input type="radio" name="op" value="menos"/> <br><br>
             Dado 2: <br>
             <input type="text" name="dadoDos" value=""/> <p></p>
@@ -72,7 +74,7 @@
       </div>
     </div>
     
-  <!--<div class="container">
+  <div class="container">
     <div class="jumbotron">
       <h1>My first Bootstrap website!</h1>      
       <p>This page will grow as we add more and more components from Bootstrap...</p>      

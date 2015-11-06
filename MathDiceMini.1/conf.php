@@ -20,16 +20,12 @@
     );
     $array_submenu = array(
       1 => array(
-        "es" => "Juego tradicional",
-        "en" => "Traditional mode"
+        "es" => "Juvenil",
+        "en" => "Junior"
       ),
       2 => array(
-        "es" => "Juego modificado",
-        "en" => "Game modified"
-      ),
-      3 => array(
-        "es" => "Modo infantil",
-        "en" => "Kids mode"
+        "es" => "Juvenil+",
+        "en" => "Junior+"
       )
     );
 ?>
