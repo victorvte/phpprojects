@@ -8,12 +8,11 @@ class Jugador{
     public $puntos = 0;
     
     //------ constructores
-    function __construct(){}
-    function __construct($nombre, $apellido, $edad, $idioma){
+    //function __construct(){}
+    function __construct($nombre, $apellido, $edad){
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->edad = $edad;
-        $this->idioma = $idioma;
     }
     
     //------- getters
@@ -47,7 +46,7 @@ class Jugador{
         $this->idioma = $idioma;
     }
     public function setPuntos($puntos){
-        $this->puntos = $puntos;
+        $this->puntos += $puntos;
     }
     
     //------ mostrar por pantalla
