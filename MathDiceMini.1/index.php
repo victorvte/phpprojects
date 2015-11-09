@@ -1,25 +1,36 @@
 <?php
+  if($_POST["submit"]=="Jugar Junior"){
+    header('Location: https://phpprojects-victorvte.c9.io/MathDiceMini.1/junior.php');
+  }elseif($_POST["submit"]=="Jugar Junior+"){
+    header('Location: https://phpprojects-victorvte.c9.io/MathDiceMini.1/index.php');
+  }
   //Incluir los ficheros externos
       include 'conf.php';
       include 'funciones.php';
-      //include 'lib/Jugador.php';
+      include 'lib/Jugador.php';
  @session_start();
   $nombre = $_POST["nombre"];
   $apellido = $_POST["apellido"];
   $edad = $_POST["edad"];
   $idiomaEn = $_POST["en"];
   $idiomaEs = $_POST["es"];
+  $isRegitred = false;
+  //$_SESSION["idioma"] = "es";
   
-  if(isset($nombre)){
-    if(isset($apellido)){
-      if(isset($edad)){
+  if($nombre != "Jugador 1"){
         //$jugador = new Jugador($nombre, $apellido, $edad);
         $_SESSION['nombre'] = $nombre;
+        $_SESSION['jugador'] = new Jugador($nombre, $apellido, $edad);
         echo $nombre;
-        $_SESSION['apellido'] = $apellido;
-        $_SESSION['edad'] = $edad;
-      }
-    }
+        $isRegitred = true;
+        if(isset($apellido)){
+          $_SESSION['apellido'] = $apellido;
+          $_SESSION['jugador']->setApellido($apellido);
+        }
+        if(isset($edad)){
+          $_SESSION['edad'] = $edad;
+          $_SESSION['jugador']->setEdad($edad);
+        }
   }
 ?>
 
@@ -71,7 +82,8 @@
               <input type="radio" name="en" value=""/> <br><br>
             <input type="hidden" name="imgDadoUno" value="<?=$imgDadoUno?>"/> 
             <input type="hidden" name="imgDadoDos" value="<?=$imgDadoDos?>"/> 
-            <input type="submit" class="btn btn-default" name="submit" value="empezar"/>
+            <input type="submit" class="btn btn-default" name="submit" value="Jugar Junior"/>
+            <input type="submit" class="btn btn-default" name="submit" value="Jugar Junior+"/>
           </form>
         </div>
         <div class="col-sm-6">

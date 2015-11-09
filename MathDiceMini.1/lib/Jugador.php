@@ -2,10 +2,12 @@
 class Jugador{
     
     public $nombre = "Jugador 1";
-    public $apellido = "Jugador 1 apellido";
+    public $apellido = "";
     public $edad = 0;
     public $idioma = "es";
     public $puntos = 0;
+    public $tirada = 0;
+    public $meta = 0;
     
     //------ constructores
     //function __construct(){}
@@ -31,6 +33,12 @@ class Jugador{
     public function getPuntos(){
         return $this->puntos;
     }
+    public function getTirada(){
+        return $this->tirada;
+    }
+    public function getMeta(){
+        return $this->meta;
+    }
     
     //------ setters
     public function setNombre($nombre){
@@ -48,6 +56,13 @@ class Jugador{
     public function setPuntos($puntos){
         $this->puntos += $puntos;
     }
+    public function setMeta($meta){
+        $this->meta = $meta;
+    }
+    public function setTirada($tirada){
+        $this->tirada = $this->tirada+$tirada;
+    }
+    
     
     //------ mostrar por pantalla
     public function mostrar($mostrar){
