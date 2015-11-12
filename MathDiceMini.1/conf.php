@@ -1,5 +1,5 @@
 <?php
-    @session_start();
+    //session_start();
     if(isset($_GET['idioma'])){
       $idioma = substr($_GET['idioma'], -2);
       $_SESSION['idioma']=$idioma;

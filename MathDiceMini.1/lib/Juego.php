@@ -22,26 +22,54 @@ class Juego{
             $resul = $resul + $dado1;
         }else if($_POST["opDado1"]=="menos"){
             $resul = $resul - $dado1;
+        }else if($_POST["opDado1"]=="mul"){
+            $resul = $resul * $dado1;
+        }else if($_POST["opDado1"]=="div"){
+            $resul = $resul / $dado1;
         }
+        
+        
         if($_POST["opDado2"]=="mas"){
             $resul = $resul + $dado2;
         }else if($_POST["opDado2"]=="menos"){
             $resul = $resul - $dado2;
+        }else if($_POST["opDado2"]=="mul"){
+            $resul = $resul * $dado2;
+        }else if($_POST["opDado2"]=="div"){
+            $resul = $resul / $dado2;
         }
+        
+        
         if($_POST["opDado3"]=="mas"){
             $resul = $resul + $dado3;
         }else if($_POST["opDado3"]=="menos"){
             $resul = $resul - $dado3;
+        }else if($_POST["opDado3"]=="mul"){
+            $resul = $resul * $dado3;
+        }else if($_POST["opDado3"]=="div"){
+            $resul = $resul / $dado3;
         }
+        
+        
         if($_POST["opDado4"]=="mas"){
             $resul = $resul + $dado4;
         }else if($_POST["opDado4"]=="menos"){
             $resul = $resul - $dado4;
+        }else if($_POST["opDado4"]=="mul"){
+            $resul = $resul * $dado4;
+        }else if($_POST["opDado4"]=="div"){
+            $resul = $resul / $dado4;
         }
+        
+        
         if($_POST["opDado5"]=="mas"){
             $resul = $resul + $dado5;
         }else if($_POST["opDado5"]=="menos"){
             $resul = $resul - $dado5;
+        }else if($_POST["opDado5"]=="mul"){
+            $resul = $resul * $dado5;
+        }else if($_POST["opDado5"]=="div"){
+            $resul = $resul / $dado5;
         }
         
         return $resul;

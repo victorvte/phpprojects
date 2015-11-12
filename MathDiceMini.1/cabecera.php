@@ -9,7 +9,7 @@
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= $array_menu["tiposJuego"][$_SESSION["idioma"]]?><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="junior.php"><?= $array_submenu_juego[1][$_SESSION["idioma"]]?></a></li>
-                <li><a href="#"><?= $array_submenu_juego[2][$_SESSION["idioma"]]?></a></li>
+                <li><a href="<?php if(isset($_SESSION["jugador"])){ ?>junior.php <?php }else{ ?>index.php<?php } ?>"><?= $array_submenu_juego[2][$_SESSION["idioma"]]?></a></li>
               </ul>
             </li>
             <li><a href="#"><?= $array_menu["instrucciones"][$_SESSION["idioma"]]?></a></li>

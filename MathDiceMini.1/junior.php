@@ -1,48 +1,60 @@
 <?php
+  //@session_start();
   //Inncluir ficheros externos
-    include 'conf.php';
+    
     //include 'funciones.php';
     include 'lib/Juego.php';
     include 'lib/Jugador.php';
 
   //recuperar variables session
   @session_start();
-  $nombre = $_SESSION['nombre'];
-  $apellido = $_SESSION["apellido"];
-  $edad = $_SESSION["edad"];
-  //Comprobar que el jugador se ha registrado
-  if(!isset($nombre)){
+  //$nombre = $_SESSION['nombre'];
+  //var_dump($_SESSION['nombre']);
+  //$apellido = $_SESSION["apellido"];
+  //$edad = $_SESSION["edad"];
+  //var_dump($_SESSION["jugador"]);
+  
+  //Comprobar que el jugador se ha registrado, sino se le redirige al indice
+  if(!isset($_SESSION['jugador'])){
     header('Location: https://phpprojects-victorvte.c9.io/MathDiceMini.1/index.php');
-  }
-  
-  $juego = new Juego();
-  
-  //establecer meta para calcular
-  $dado0 = $juego->dadoAleatorio(1, 12);
-  
-  $_SESSION['jugador']->setMeta(1);
-  //$tirada = $jugador->getTirada();
+  }else{
+  //if(isset($_SESSION['jugador'])){
+    //var_dump($_SESSION['jugador']);
+    $juego = new Juego();
     
-    //calcular
-    if ($_POST['opDado1'] == "mas" || $_POST['opDado1'] == "menos"){
-      $_SESSION['jugador']->setTirada(1);
-      $resulOp = $juego->calcular();
-      $_SESSION["calcular"] = $resulOp;
-      if($_POST['opDado0'] == $resulOp){
-        $_SESSION['jugador']->setPuntos(1);
-        
-        if($_SESSION['jugador']->getPuntos() == $_SESSION['jugador']->getMeta()){
-          echo '<script>
-                  var c = confirm("Enhorabuena!! Has ganado! Quieres  volver a jugar?");
-                    if (c == true) {
-                        window.location.replace("https://phpprojects-victorvte.c9.io/MathDiceMini.1/junior.php");
-                    } else {
-                        window.location.replace("https://phpprojects-victorvte.c9.io/MathDiceMini.1/index.php");
-                    }
-                </script>';
+    //establecer meta para calcular
+    $dado0 = $juego->dadoAleatorio(1, 12);
+    //$jugador = unserialize($_SESSION['jugador']);
+    //$_SESSION['jugador']->setMeta(1);
+    $_SESSION['jugador'] ->setMeta(10);
+    //$tirada = $jugador->getTirada();
+    //var_dump($_POST['opDado1'],$_POST['opDado2'],$_POST['opDado3'],$_POST['opDado4'],$_POST['opDado5']);
+      
+      //calcular
+      if ($_POST['opDado1']!=null||$_POST['opDado2']!=null||$_POST['opDado3']!=null||$_POST['opDado4']!=null||$_POST['opDado5']!=null){
+        $_SESSION['jugador']->setTirada(1);
+        $resulOp = $juego->calcular();
+        $_SESSION["calcular"] = $resulOp;
+        //var_dump($_SESSION["calcular"]);
+        //var_dump($_POST['opDado0']);
+        if(isset($_POST['dado0'])){
+          if($_POST['dado0'] == $_SESSION["calcular"]){
+            $_SESSION['jugador']->setPuntos(1);
+            
+            if($_SESSION['jugador']->getPuntos() == $_SESSION['jugador']->getMeta()){
+              echo '<script>
+                      var c = confirm("Enhorabuena!! Has ganado! Quieres  seguir jugando?");
+                        if (c == true) {
+                            window.location.replace("https://phpprojects-victorvte.c9.io/MathDiceMini.1/junior.php");
+                        } else {
+                            window.location.replace("https://phpprojects-victorvte.c9.io/MathDiceMini.1/index.php");
+                        }
+                    </script>';
+            }
+          }
         }
       }
-    }
+  }
   
 ?>
 
@@ -64,6 +76,7 @@
   
     <?php
     //Incluir cabecera
+    include 'conf.php';
       include 'cabecera.php';
     ?>
 
@@ -95,7 +108,11 @@
         
         <div class="col-sm-2">
           
-          <table class="table">
+          <table class="table"><thead>
+              <tr>
+                <th>Jugador: <?= $_SESSION['jugador']->getNombre(); ?> <?= $_SESSION['jugador']->getApellido(); ?></th>
+              </tr>
+            </thead>
             <tbody>
               <tr class="success">
                 <td>Tirada: </td>
@@ -131,6 +148,7 @@
           
           <!-- Se utiliza post en el formulario para enviar los datos !-->
             <form method="post" action="junior.php">
+              <div class="row">
               <div class="col-sm-2"> 
                 Sumar -> 
                 <input type="radio" name="opDado1" value="mas" /> <p></p>
@@ -139,28 +157,64 @@
               </div>
               <div class="col-sm-2"> 
                 Sumar -> 
-                <input type="radio" name="opDado2" value="mas" checked/> <p></p>
+                <input type="radio" name="opDado2" value="mas"/> <p></p>
                 Restar ->
                 <input type="radio" name="opDado2" value="menos"/> <br><br>
               </div>
               <div class="col-sm-2"> 
                 Sumar -> 
-                <input type="radio" name="opDado3" value="mas" checked/> <p></p>
+                <input type="radio" name="opDado3" value="mas"/> <p></p>
                 Restar ->
                 <input type="radio" name="opDado3" value="menos"/> <br><br>
               </div>
               <div class="col-sm-2"> 
                 Sumar -> 
-                <input type="radio" name="opDado4" value="mas" checked/> <p></p>
+                <input type="radio" name="opDado4" value="mas"/> <p></p>
                 Restar ->
                 <input type="radio" name="opDado4" value="menos"/> <br><br>
               </div>
               <div class="col-sm-2"> 
                 Sumar -> 
-                <input type="radio" name="opDado5" value="mas" checked/> <p></p>
+                <input type="radio" name="opDado5" value="mas"/> <p></p>
                 Restar ->
                 <input type="radio" name="opDado5" value="menos"/> <br><br>
               </div>
+              </div>
+              
+              <?php if($_SESSION['jugador']->getTipo() == "junior+"){?>
+              <div class="row">
+                  <div class="col-sm-2"> 
+                  Dividir -> 
+                  <input type="radio" name="opDado1" value="div" /> <p></p>
+                  Multiplicar ->
+                  <input type="radio" name="opDado1" value="mul"/> <br><br>
+                  </div>
+                  <div class="col-sm-2"> 
+                    Dividir -> 
+                    <input type="radio" name="opDado2" value="div" /> <p></p>
+                    Multiplicar ->
+                    <input type="radio" name="opDado2" value="mul"/> <br><br>
+                  </div>
+                  <div class="col-sm-2"> 
+                    Dividir -> 
+                    <input type="radio" name="opDado3" value="div" /> <p></p>
+                    Multiplicar ->
+                    <input type="radio" name="opDado3" value="mul"/> <br><br>
+                  </div>
+                  <div class="col-sm-2"> 
+                    Dividir -> 
+                    <input type="radio" name="opDado4" value="div" /> <p></p>
+                    Multiplicar ->
+                    <input type="radio" name="opDado4" value="mul"/> <br><br>
+                  </div>
+                  <div class="col-sm-2"> 
+                    Dividir -> 
+                    <input type="radio" name="opDado5" value="div" /> <p></p>
+                    Multiplicar ->
+                    <input type="radio" name="opDado5" value="mul"/> <br><br>
+                </div>
+                </div>
+              <?php } ?>
               
               
               <input type="hidden" name="dado0" value="<?=$dado0?>"/> 
@@ -174,7 +228,7 @@
           <div class="col-sm-2"> </div>
           <div class="col-sm-2"> </div>
           <div class="col-sm-2"> 
-              <input type="submit" class="button" name="submit" value="Comprobar"/>
+              <input type="submit" class="button" name="submit" value="Comprobar"/><br><br>
             </form>
           </div>
         </div>  

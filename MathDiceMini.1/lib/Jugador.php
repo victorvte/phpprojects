@@ -8,13 +8,12 @@ class Jugador{
     public $puntos = 0;
     public $tirada = 0;
     public $meta = 0;
+    public $tipo = "";
     
     //------ constructores
     //function __construct(){}
-    function __construct($nombre, $apellido, $edad){
+    function __construct($nombre){
         $this->nombre = $nombre;
-        $this->apellido = $apellido;
-        $this->edad = $edad;
     }
     
     //------- getters
@@ -39,6 +38,9 @@ class Jugador{
     public function getMeta(){
         return $this->meta;
     }
+    public function getTipo(){
+        return $this->tipo;
+    }
     
     //------ setters
     public function setNombre($nombre){
@@ -62,13 +64,9 @@ class Jugador{
     public function setTirada($tirada){
         $this->tirada = $this->tirada+$tirada;
     }
-    
-    
-    //------ mostrar por pantalla
-    public function mostrar($mostrar){
-        echo $mostrar."<br>";
+    public function setTipo($tipo){
+        $this->tipo = $tipo;
     }
-    
     
 }
 ?>
