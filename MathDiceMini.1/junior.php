@@ -7,7 +7,7 @@
     include 'lib/Jugador.php';
 
   //recuperar variables session
-  @session_start();
+  session_start();
   //$nombre = $_SESSION['nombre'];
   //var_dump($_SESSION['nombre']);
   //$apellido = $_SESSION["apellido"];
@@ -19,13 +19,15 @@
     header('Location: https://phpprojects-victorvte.c9.io/MathDiceMini.1/index.php');
   }else{
   //if(isset($_SESSION['jugador'])){
-    //var_dump($_SESSION['jugador']);
     $juego = new Juego();
-    
-    //establecer meta para calcular
     $dado0 = $juego->dadoAleatorio(1, 12);
-    //$jugador = unserialize($_SESSION['jugador']);
-    //$_SESSION['jugador']->setMeta(1);
+    $dado1 = $juego->dadoAleatorio(1, 6);
+    $dado2 = $juego->dadoAleatorio(1, 6);
+    $dado3 = $juego->dadoAleatorio(1, 6);
+    $dado4 = $juego->dadoAleatorio(1, 3);
+    $dado5 = $juego->dadoAleatorio(1, 3);
+
+    //establecer meta para calcular
     $_SESSION['jugador'] ->setMeta(10);
     //$tirada = $jugador->getTirada();
     //var_dump($_POST['opDado1'],$_POST['opDado2'],$_POST['opDado3'],$_POST['opDado4'],$_POST['opDado5']);
@@ -64,19 +66,22 @@
   <head>
     <title>Math Dice Mini</title>
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/my.js"></script>
   </head>
   
   <body>
   
     <?php
     //Incluir cabecera
-    include 'conf.php';
+      include 'conf.php';
       include 'cabecera.php';
     ?>
 
@@ -104,8 +109,6 @@
         <div class="col-sm-2"> </div>
         <div class="col-sm-2">  <img src="imagenes/dodecaedro<?php echo $dado0 ?>.png" class="img-responsive"></div>
         <div class="col-sm-2"> </div>
-
-        
         <div class="col-sm-2">
           
           <table class="table"><thead>
@@ -134,11 +137,11 @@
       </div>
       <div class="row" id="numRandom">
         <!-- Se utiliza la funcion 'dadoAleatorio' del fichero 'funciones' para hallar los numeros aleatorios de las imgenes de los dados !-->
-        <div class="col-sm-2"> Dado 1: <br> <img src="imagenes/dado<?php echo $dado1 = $juego->dadoAleatorio(1, 6); ?>.png" class="img-responsive"> </div>
-        <div class="col-sm-2"> Dado 2: <br> <img src="imagenes/dado<?php echo $dado2 = $juego->dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
-        <div class="col-sm-2"> Dado 3: <br> <img src="imagenes/dado<?php echo $dado3 = $juego->dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
-        <div class="col-sm-2"> Dado 4: <br> <img src="imagenes/dado<?php echo $dado4 = $juego->dadoAleatorio(1, 3); ?>.png" class="img-responsive"></div>
-        <div class="col-sm-2"> Dado 5: <br> <img src="imagenes/dado<?php echo $dado5 = $juego->dadoAleatorio(1, 3); ?>.png" class="img-responsive"></div>
+        <div class="col-sm-2"> Dado 1: <br> <img class="dado3" src="imagenes/dado<?php echo $dado1 ?>.png" class="img-responsive"> </div>
+        <div class="col-sm-2"> Dado 2: <br> <img class="dado3" src="imagenes/dado<?php echo $dado2 ?>.png" class="img-responsive"></div>
+        <div class="col-sm-2"> Dado 3: <br> <img class="dado3" src="imagenes/dado<?php echo $dado3 ?>.png" class="img-responsive"></div>
+        <div class="col-sm-2"> Dado 4: <br> <img class="dado6" src="imagenes/dado<?php echo $dado4 ?>.png" class="img-responsive"></div>
+        <div class="col-sm-2"> Dado 5: <br> <img class="dado6" src="imagenes/dado<?php echo $dado5 ?>.png" class="img-responsive"></div>
         
         <div class="col-sm-2"> </div>
         

@@ -18,8 +18,10 @@
         <p>  
                 <?php 
                 //var_dump(isset($resul));
-                    if(isset($resul)){
-                    print_r("El resultado es: "); echo $resul; 
+                    if(isset($resul)){ 
+                ?>
+                    <h1>El resultado es: <?= $resul ?> </h1> 
+                <?php 
                     }else{
                         print_r("ERROR! Los dados no corresponden con los numeros o no has marcado un simbolo de operacion");
                     }

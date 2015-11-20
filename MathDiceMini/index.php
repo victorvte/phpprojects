@@ -27,16 +27,14 @@
     ?>
   
     <div class="container">
-      <!-- Dados muestra proyecto 1
         <div class="row">
-          <div class="col-sm-2"><img src="imagenes/dado1.png" class="img-responsive"></div>
-          <div class="col-sm-2"><img src="imagenes/dado2.png" class="img-responsive"></div>
-          <div class="col-sm-2"><img src="imagenes/dado3.png" class="img-responsive"></div>
-          <div class="col-sm-2"><img src="imagenes/dado4.png" class="img-responsive"></div>
-          <div class="col-sm-2"><img src="imagenes/dado5.png" class="img-responsive"></div>
-          <div class="col-sm-2"><img src="imagenes/dado6.png" class="img-responsive"></div>
+          <div class="col-sm-2"><img src="imagenes/dado<?php echo $imgDadoUno = dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
+          <div class="col-sm-2"><img src="imagenes/dado<?php echo $imgDadoUno = dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
+          <div class="col-sm-2"><img src="imagenes/dado<?php echo $imgDadoUno = dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
+          <div class="col-sm-2"><img src="imagenes/dado<?php echo $imgDadoUno = dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
+          <div class="col-sm-2"><img src="imagenes/dado<?php echo $imgDadoUno = dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
+          <div class="col-sm-2"><img src="imagenes/dado<?php echo $imgDadoUno = dadoAleatorio(1, 6); ?>.png" class="img-responsive"></div>
         </div>
-      !-->
       <div class="row">
         <div class="col-sm-2"> </div>
         <div class="col-sm-4"> </div>

@@ -47,7 +47,7 @@
         }  
 
         if($_POST["submit"]=="Jugar"){
-          header('Location: https://phpprojects-victorvte.c9.io/MathDiceMini.1/junior.php');
+          header('Location: https://phpprojects-victorvte.c9.io/MathDiceMini.2/junior.php');
         }
       }
   
