@@ -19,6 +19,7 @@
                 <li><a href="<?=$_SERVER["REQUEST_URI"]?>?idioma=en"><?= $array_submenu_idioma[2][$_SESSION["idioma"]]?></a></li>
               </ul>
             </li>
+            <li><a href="index2.php"><?= $array_menu["perfil"][$_SESSION["idioma"]]?></a></li>
           </ul>
         </div>
       </div>

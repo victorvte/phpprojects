@@ -25,14 +25,12 @@
     $_SESSION['jugador'] ->setMeta(10);
 
       //calcular
-      //if ($_POST['opDado1']!=null||$_POST['opDado2']!=null||$_POST['opDado3']!=null||$_POST['opDado4']!=null||$_POST['opDado5']!=null){
         $_SESSION['jugador']->setTirada(1);
         $_SESSION["calcular"] = $_POST['resul'];
 
         if(isset($_POST['dado0'])){
           if($_POST['dado0'] == $_SESSION["calcular"]){
             $_SESSION['jugador']->setPuntos(1);
-            
             if($_SESSION['jugador']->getPuntos() == $_SESSION['jugador']->getMeta()){
               echo '<script>
                       var c = confirm("Enhorabuena!! Has ganado! Quieres  seguir jugando?");
@@ -45,13 +43,11 @@
             }
           }
         }
-      //}
   }
 ?>
 
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>Math Dice Mini</title>
     <meta charset="utf-8">
@@ -68,7 +64,6 @@
       include 'conf.php';
       include 'cabecera.php';
     ?>
-
     <div class="container">
       <div class="row">
         <div class="col-sm-2">
@@ -97,7 +92,10 @@
           
           <table class="table"><thead>
               <tr>
-                <th>Jugador: <?= $_SESSION['jugador']->getNombre(); ?> <?= $_SESSION['jugador']->getApellido(); ?></th>
+                <th>
+                  Jugador: <?= $_SESSION['jugador']->getNombre(); ?> <?= $_SESSION['jugador']->getApellido(); ?>
+                  Edad: <?= $_SESSION['jugador']->getEdad(); ?>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -120,7 +118,7 @@
         
       </div>
       <div class="row" id="numRandom">
-        <!-- Se utiliza la funcion 'dadoAleatorio' del fichero 'funciones' para hallar los numeros aleatorios de las imgenes de los dados !-->
+        <!-- Se utiliza la funcion 'dadoAleatorio' de la clase 'Juego' para hallar los numeros aleatorios de las imgenes de los dados !-->
         <div class="col-sm-2"> Dado 1: <br> 
         <img class="dado3" src="imagenes/dado<?php echo $dado1 ?>.png" class="img-responsive" onClick="dado1(<?=$dado1?>)" id="1"></div>
         <div class="col-sm-2"> Dado 2: <br> 
@@ -131,9 +129,6 @@
         <img class="dado6" src="imagenes/dado<?php echo $dado4 ?>.png" class="img-responsive" onClick="dado4(<?=$dado4?>)" id="4"></div>
         <div class="col-sm-2"> Dado 5: <br> 
         <img class="dado6" src="imagenes/dado<?php echo $dado5 ?>.png" class="img-responsive" onClick="dado5(<?=$dado5?>)" id="5"></div>
-        
-        <div class="col-sm-2"> </div>
-        
       </div>
       
         <div class="row">

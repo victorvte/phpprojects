@@ -1,31 +1,15 @@
 <?php
   //Incluir los ficheros externos
     include 'conf.php';
-    include 'funciones.php';
     include 'lib/Jugador.php';
     
   session_start();
   if($_SESSION["idioma"]==null){
     $_SESSION["idioma"] = "es";
   }
-  //$nombre = $_POST["nombre"];
-  //var_dump($nombre);
-  //$apellido = $_POST["apellido"];
-  //$edad = $_POST["edad"];
-  //$idiomaEn = $_POST["en"];
-  //$idiomaEs = $_POST["es"];
-  //$isRegitred = false;
-  //$_SESSION["idioma"] = "es";
-  //var_dump($_POST["nombre"]);
-  //var_dump($_POST["submit"]);
-      // var_dump($_SESSION['jugador']);
-   // var_dump($_POST["juego"]);
-  if(isset($_POST["nombre"])){
-      //$jugador = new Jugador($nombre, $apellido, $edad);
-      //$_SESSION['nombre'] = $_POST["nombre"];
-      //$jugador = serialize(new Jugador($nombre, $apellido, $edad));
+
+  if($_POST["nombre"]!=null  && $_POST["apellido"]!=null && $_POST["edad"]!=null){
       $_SESSION['jugador'] = new Jugador($_POST["nombre"]);
-      //var_dump($_SESSION['jugador']);
       if(isset($_SESSION['jugador'])){
         if(isset($_POST["apellido"])){
           $_SESSION['jugador']->setApellido($_POST["apellido"]);

@@ -25,6 +25,10 @@
       "idioma" => array(
         "es" => "Idioma",
         "en" => "Language"
+      ),
+      "perfil" => array(
+        "es" => "Perfil",
+        "en" => "Profile"
       )
     );
     $array_submenu_juego = array(
