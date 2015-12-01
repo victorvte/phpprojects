@@ -21,9 +21,6 @@
     $dado4 = $juego->dadoAleatorio(1, 3);
     $dado5 = $juego->dadoAleatorio(1, 3);
 
-    //establecer meta para calcular
-    $_SESSION['jugador'] ->setMeta(10);
-
       //calcular
         $_SESSION['jugador']->setTirada(1);
         $_SESSION["calcular"] = $_POST['resul'];
@@ -40,6 +37,10 @@
                             window.location.replace("https://phpprojects-victorvte.c9.io/MathDiceMini.2/index.php");
                         }
                     </script>';
+              if($_SESSION['jugador']->getTipo() == "junior"){
+                $_SESSION['jugador']->setTipo("junior+");
+              }
+              $_SESSION['jugador'] ->setMeta(($_SESSION['jugador'] ->getMeta()+$_SESSION['jugador'] ->getMeta()));
             }
           }
         }
@@ -133,8 +134,8 @@
       
         <div class="row">
           <form method="post" action="junior.php">
-          <div class="col-sm-2"><br> <img class="dado3" src="imagenes/suma.jpg" class="img-responsive" onClick="añadirOp('+')"> </div>
-          <div class="col-sm-2"><br> <img class="dado3" src="imagenes/resta.jpg" class="img-responsive" onClick="añadirOp('-')"> </div>
+            <div class="col-sm-2"><br> <img class="dado3" src="imagenes/suma.jpg" class="img-responsive" onClick="añadirOp('+')"> </div>
+            <div class="col-sm-2"><br> <img class="dado3" src="imagenes/resta.jpg" class="img-responsive" onClick="añadirOp('-')"> </div>
           <?php if($_SESSION['jugador']->getTipo() == "junior+"){?>
             <div class="col-sm-2"><br> <img class="dado3" src="imagenes/multiplicacion.jpg" class="img-responsive" onClick="añadirOp('*')"> </div>
             <div class="col-sm-2"><br> <img class="dado3" src="imagenes/division.jpg" class="img-responsive" onClick="añadirOp('/')"> </div>

@@ -10,14 +10,13 @@
   if($_SESSION["jugador"]==null){
       header('Location: https://phpprojects-victorvte.c9.io/MathDiceMini.2/index.php');
   }
-  var_dump($_POST["nombre"]);
   if($_POST["nombre"]!=null  && $_POST["apellido"]!=null && $_POST["edad"]!=null){
       $_SESSION['jugador']->setNombre($_POST["nombre"]);
       $_SESSION['jugador']->setApellido($_POST["apellido"]);
       $_SESSION['jugador']->setEdad($_POST["edad"]);
   }
   if($_POST["submit"]=="Guardar Datos"){
-      header('Location: https://phpprojects-victorvte.c9.io/MathDiceMini.2/junior.php');
+  header('Location: https://phpprojects-victorvte.c9.io/MathDiceMini.2/junior.php');
     }
 ?>
 

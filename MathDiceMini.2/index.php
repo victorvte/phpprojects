@@ -8,8 +8,15 @@
     $_SESSION["idioma"] = "es";
   }
 
-  if($_POST["nombre"]!=null  && $_POST["apellido"]!=null && $_POST["edad"]!=null){
+  if($_POST["nombre"]!=null){
       $_SESSION['jugador'] = new Jugador($_POST["nombre"]);
+      //establecer meta para calcular
+      if($_POST["meta"]!=null){
+        $_SESSION['jugador'] ->setMeta($_POST["meta"]);
+      }else{
+        $_SESSION['jugador'] ->setMeta(1);
+      }
+      
       if(isset($_SESSION['jugador'])){
         if(isset($_POST["apellido"])){
           $_SESSION['jugador']->setApellido($_POST["apellido"]);
@@ -71,8 +78,8 @@
             <input type="text" class="form-control" name="nombre" value=""/> <br>
             <label for="apellido">Apellido:</label> <br>
             <input type="text" class="form-control" name="apellido" value=""/> <br>
-            <label for="edad">Edad:</label> <br>
-            <input type="text" class="form-control" name="edad" value=""/> <br>
+            <label for="edad">Meta:</label> <br>
+            <input type="text" class="form-control" name="meta" value=""/> <br>
             
             <div class="col-sm-4"> 
               <label for="idioma">Idioma:</label> <br>
@@ -81,6 +88,8 @@
               <label for="eng">Ingles:</label>
               <input type="radio" name="en" value=""/> <br>
             </div>
+             <div class="col-sm-2"> </div>
+             <div class="col-sm-2"> </div>
             <div class="col-sm-4"> 
               <label for="idioma">Tipo de Juego:</label> <br>
               <label for="esp">Junior:</label> 
@@ -88,8 +97,10 @@
               <label for="eng">Junior+:</label>
               <input type="radio" name="juego" value="junior+"/><br>
             </div>
+            <div class="col-sm-2"> </div>
+            <div class="col-sm-2"> </div>
             <div class="col-sm-6"> 
-            <input type="submit" class="btn btn-default" name="submit" value="Jugar"/>
+            <input type="submit" class="btn btn-primary" name="submit" value="Jugar"/>
             </div>
           </form>
         </div>

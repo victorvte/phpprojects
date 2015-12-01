@@ -1,0 +1,3 @@
+florida_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: floridaBundle:Default:index }
