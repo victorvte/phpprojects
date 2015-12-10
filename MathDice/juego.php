@@ -41,6 +41,12 @@
             $_SESSION['jugador'] ->setMeta(($_SESSION['jugador']->getMeta()+$_SESSION['jugador']->getMeta()));
           }
         }
+      }else{
+        /*echo '<script>alert("Has fallado! :S");</script>';
+        echo '<script>
+                var resul = document.getElementById("ultimaTirada");
+                resul.style.background-color = #000000;
+             </script>';*/
       }
     }
   }

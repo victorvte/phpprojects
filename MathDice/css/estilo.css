@@ -49,6 +49,14 @@ input[type="text"]{
 #botones{
     margin-top:10px;
 }
-/*#cabecera{
+/*#tiradaCorrecta{
+    margin-top: 100px;
+    border: 10px solid;
+    background-color: #2EFE2E;
+}
+#tiradaErronea{
+    background-color: #2EFE2E;
+}
+#cabecera{
     background-color: #ffffff;
 }*/

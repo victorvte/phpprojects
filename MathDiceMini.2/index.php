@@ -2,7 +2,11 @@
   //Incluir los ficheros externos
     include 'conf.php';
     include 'lib/Jugador.php';
+    include 'lib/Basedatos.php';
     
+  $db = new Basedatos();
+  $prueba = $db->mostrarTabla();
+  var_dump($prueba);
   session_start();
   if($_SESSION["idioma"]==null){
     $_SESSION["idioma"] = "es";

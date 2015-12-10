@@ -30,6 +30,10 @@
         "es" => "Vista",
         "en" => "View"
       ),
+      "juego" => array(
+        "es" => "Juego",
+        "en" => "Game"
+      ),
       "perfil" => array(
         "es" => "Perfil",
         "en" => "Profile"
