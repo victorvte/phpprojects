@@ -20,6 +20,7 @@
               </ul>
             </li>
             <li><a href="index2.php"><?= $array_menu["perfil"][$_SESSION["idioma"]]?></a></li>
+            <li><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" datatarget="#hamburger-navigation"></li>
           </ul>
         </div>
       </div>

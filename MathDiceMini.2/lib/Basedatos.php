@@ -18,16 +18,31 @@ class Basedatos
         }
     }
     
-    function mostrarTabla(){
+    function insertarUsuario($nombre, $apellido){
+        $consulta = "INSERT INTO  `mathdice`.`usuarios` (`id` ,`nombre` ,`apellido`)VALUES (NULL ,  '$nombre',  '$apellido');";
+        $resultado = $this->conexion->query($consulta);
+        return $resultado;
+    }
+    
+    function checkarUsuario($nombre, $apellido){
+        $consulta = "SELECT * FROM usuarios WHERE nombre='$nombre' AND apellido='$apellido'";
+        $resultado = $this->conexion->query($consulta);
+        $fila = $resultado->fetch_assoc();
+        
+        if($fila!=null){
+            return $fila;
+        }else{
+            return false;
+        }
+    }
+    
+    /*function mostrarUsuarios(){
         $consulta = "SELECT * FROM usuarios";
         if($resultado = $this->conexion->query($consulta)){
-            /*while($fila = $resultado->fetch_assoc()){
-                $id = $fila['id'];
-            }*/
             $fila = $resultado->fetch_assoc();
             $resultado->free();
         }
         return $fila;
-    }
+    }*/
 }
 ?>

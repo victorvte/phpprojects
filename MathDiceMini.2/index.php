@@ -5,8 +5,12 @@
     include 'lib/Basedatos.php';
     
   $db = new Basedatos();
-  $prueba = $db->mostrarTabla();
-  var_dump($prueba);
+  //$prueba = $db->mostrarUsuarios();
+  //$prueba2 = $db->insertarUsuario("juan", "perez");
+  //var_dump($prueba);
+  //var_dump($prueba2);
+  $prueba3 = $db->checkarUsuario("juan", "perez");
+  var_dump($prueba3);
   session_start();
   if($_SESSION["idioma"]==null){
     $_SESSION["idioma"] = "es";
